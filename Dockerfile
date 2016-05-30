@@ -1,10 +1,3 @@
-#
-# GitLab CI: Android v0.2
-#
-# https://hub.docker.com/r/jangrewe/gitlab-ci-android/
-# https://git.faked.org/jan/gitlab-ci-android
-#
-
 FROM ubuntu:16.04
 MAINTAINER Jan Grewe <jan@faked.org>
 
