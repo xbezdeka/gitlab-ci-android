@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER Jan Grewe <jan@faked.org>
+MAINTAINER Martin <xbezdeka@test.com>
 
 ENV VERSION_SDK_TOOLS "25.1.7"
 ENV VERSION_BUILD_TOOLS "23.0.3"
