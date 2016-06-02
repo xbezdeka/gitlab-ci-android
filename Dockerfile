@@ -4,6 +4,7 @@ MAINTAINER Martin <xbezdeka@test.com>
 ENV VERSION_SDK_TOOLS "25.1.7"
 ENV VERSION_BUILD_TOOLS "23.0.3"
 ENV VERSION_TARGET_SDK "23"
+ENV VERSION_GRADLE "2.10"
 
 ENV SDK_PACKAGES "build-tools-${VERSION_BUILD_TOOLS},android-${VERSION_TARGET_SDK},addon-google_apis-google-${VERSION_TARGET_SDK},platform-tools,extra-android-m2repository,extra-android-support,extra-google-google_play_services,extra-google-m2repository"
 
@@ -31,5 +32,13 @@ RUN rm -f /etc/ssl/certs/java/cacerts; \
 ADD http://dl.google.com/android/repository/tools_r${VERSION_SDK_TOOLS}-linux.zip /tools.zip
 RUN unzip /tools.zip -d /sdk && \
     rm -v /tools.zip
+    
+# Install Gradle
+RUN wget https://services.gradle.org/distributions/gradle-${VERSION_GRADLE}-all.zip && \
+    unzip gradle-${VERSION_GRADLE}-all.zip && \
+    mv gradle-${VERSION_GRADLE} /opt/ && \
+    rm gradle-${VERSION_GRADLE}-all.zip
+ENV GRADLE_HOME /opt/gradle-2.0
+ENV PATH $PATH:$GRADLE_HOME/bin    
 
 RUN (while [ 1 ]; do sleep 5; echo y; done) | ${ANDROID_HOME}/tools/android update sdk -u -a -t ${SDK_PACKAGES}
