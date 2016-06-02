@@ -34,11 +34,10 @@ RUN unzip /tools.zip -d /sdk && \
     rm -v /tools.zip
     
 # Install Gradle
-RUN wget https://services.gradle.org/distributions/gradle-${VERSION_GRADLE}-all.zip && \
-    unzip gradle-${VERSION_GRADLE}-all.zip && \
-    mv gradle-${VERSION_GRADLE} /opt/ && \
-    rm gradle-${VERSION_GRADLE}-all.zip
-ENV GRADLE_HOME /opt/gradle-2.0
+ADD https://services.gradle.org/distributions/gradle-${VERSION_GRADLE}-all.zip /gradle.zip
+RUN unzip /gradle.zip -d /gradle && \
+    rm -v /gradle.zip
+ENV GRADLE_HOME /gradle/gradle-${VERSION_GRADLE}
 ENV PATH $PATH:$GRADLE_HOME/bin    
 
 RUN (while [ 1 ]; do sleep 5; echo y; done) | ${ANDROID_HOME}/tools/android update sdk -u -a -t ${SDK_PACKAGES}
