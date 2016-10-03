@@ -31,5 +31,5 @@ RUN rm -f /etc/ssl/certs/java/cacerts; \
 ADD http://dl.google.com/android/repository/tools_r${VERSION_SDK_TOOLS}-linux.zip /tools.zip
 RUN unzip /tools.zip -d /sdk && \
     rm -v /tools.zip
-
+ 
 RUN (while [ 1 ]; do sleep 5; echo y; done) | ${ANDROID_HOME}/tools/android update sdk -u -a -t ${SDK_PACKAGES}
