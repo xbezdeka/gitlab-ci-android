@@ -4,8 +4,6 @@ MAINTAINER Martin <xbezdeka@test.com>
 ENV VERSION_BUILD_TOOLS "25.0.2"
 ENV VERSION_TARGET_SDK "25"
 
-ENV SDK_PACKAGES "build-tools-${VERSION_BUILD_TOOLS},android-${VERSION_TARGET_SDK},addon-google_apis-google-${VERSION_TARGET_SDK},platform-tools,extra-android-m2repository,extra-android-support,extra-google-google_play_services,extra-google-m2repository"
-
 ENV ANDROID_HOME "/sdk"
 ENV PATH "$PATH:${ANDROID_HOME}/tools"
 ENV DEBIAN_FRONTEND noninteractive
@@ -31,4 +29,5 @@ ADD https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip /tools.
 RUN unzip /tools.zip -d /sdk && \
     rm -v /tools.zip
 
-RUN (while [ 1 ]; do sleep 5; echo y; done) | ${ANDROID_HOME}/tools/android update sdk -u -a -t ${SDK_PACKAGES}
+RUN (while [ 1 ]; do sleep 5; echo y; done) | ${ANDROID_HOME}/tools/bin ./sdkmanager "build-tools;25.0.2" "platforms;android-25" "platform-tools" "extras;android;m2repository" "extras;google;m2repository" "extras;google;google_p
+lay_services"
