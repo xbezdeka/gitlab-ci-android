@@ -29,6 +29,6 @@ ADD https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip /tools.
 RUN unzip /tools.zip -d /sdk && \
     rm -v /tools.zip
 
-RUN (while [ 1 ]; do sleep 5; echo y; done) | ${ANDROID_HOME}/tools/bin ./sdkmanager "build-tools;25.0.2" "platforms;android-25" "platform-tools" "extras;android;m2repository" "extras;google;m2repository" "extras;google;google_p
-lay_services"
+#RUN (while [ 1 ]; do sleep 5; echo y; done) | ${ANDROID_HOME}/tools/bin ./sdkmanager "build-tools;25.0.2" "platforms;android-25" "platform-tools" "extras;android;m2repository" "extras;google;m2repository" "extras;google;google_p
+#lay_services"
 
