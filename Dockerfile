@@ -29,10 +29,10 @@ ADD https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip /tools.
 RUN unzip /tools.zip -d /sdk && \
     rm -v /tools.zip
 
-echo y | ${ANDROID_HOME}/tools/bin/sdkmanager "platforms;android-25"
-echo y | ${ANDROID_HOME}/tools/bin/sdkmanager "platform-tools"
-echo y | ${ANDROID_HOME}/tools/bin/sdkmanager "build-tools;25.0.2"
-echo y | ${ANDROID_HOME}/tools/bin/sdkmanager "extras;android;m2repository"
-echo y | ${ANDROID_HOME}/tools/bin/sdkmanager "extras;google;m2repository"
-echo y | ${ANDROID_HOME}/tools/bin/sdkmanager "extras;google;google_play_services"
+echo y | /sdk/tools/bin/sdkmanager "platforms;android-25"
+echo y | /sdk/tools/bin/sdkmanager "platform-tools"
+echo y | /sdk/tools/bin/sdkmanager "build-tools;25.0.2"
+echo y | /sdk/tools/bin/sdkmanager "extras;android;m2repository"
+echo y | /sdk/tools/bin/sdkmanager "extras;google;m2repository"
+echo y | /sdk/tools/bin/sdkmanager "extras;google;google_play_services"
 
