@@ -1,7 +1,6 @@
 FROM ubuntu:16.04
 MAINTAINER Martin <xbezdeka@test.com>
 
-ENV VERSION_SDK_TOOLS "26.0.2"
 ENV VERSION_BUILD_TOOLS "25.0.2"
 ENV VERSION_TARGET_SDK "25"
 
@@ -28,7 +27,7 @@ RUN apt-get -qq update && \
 RUN rm -f /etc/ssl/certs/java/cacerts; \
     /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
-ADD http://dl.google.com/android/repository/tools_r${VERSION_SDK_TOOLS}-linux.zip /tools.zip
+ADD https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip /tools.zip
 RUN unzip /tools.zip -d /sdk && \
     rm -v /tools.zip
 
