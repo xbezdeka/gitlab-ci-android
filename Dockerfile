@@ -30,4 +30,3 @@ RUN unzip /tools.zip -d /sdk && \
     rm -v /tools.zip
 
 RUN (while [ 1 ]; do sleep 5; echo y; done) | ${ANDROID_HOME}/tools/bin ./sdkmanager "build-tools;25.0.2" "platforms;android-25" "platform-tools" "extras;android;m2repository" "extras;google;m2repository" "extras;google;google_play_services"
-
